@@ -9,7 +9,7 @@ require_relative 'config/application'
 
 
 use SlackAuthorizer
-
+enable :sessions
 use OmniAuth::Strategies::Spotify
 
 post '/whatsong' do
