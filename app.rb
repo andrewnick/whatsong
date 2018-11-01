@@ -2,7 +2,6 @@ require 'sinatra'
 require 'rspotify'
 require 'rspotify/oauth'
 require 'omniauth'
-require 'active_record'
 
 require_relative 'slack_authoriser'
 # require_relative 'config/initializers/omniauth'
