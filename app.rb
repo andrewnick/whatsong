@@ -13,5 +13,5 @@ post '/whatsong' do
 #   arctic_monkeys.genres.join(', ')
 
   me = RSpotify::User.find('1232409408')
-  me.currently_playing
+  me.recently_played.join(', ')
 end
