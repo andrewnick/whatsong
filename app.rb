@@ -4,15 +4,13 @@ require 'rspotify/oauth'
 require 'omniauth'
 
 require_relative 'slack_authoriser'
-require_relative 'config/initializers/omniauth'
+# require_relative 'config/initializers/omniauth'
 require_relative 'config/application'
 
 
 use SlackAuthorizer
 
-use OmniAuth::Builder do
-    provider :spotify, ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'], scope: 'user-read-email playlist-modify-public user-library-read user-library-modify user-read-playback-state user-read-currently-playing'
-end
+use OmniAuth::Strategies::Spotify
 
 post '/whatsong' do
   'OK'
