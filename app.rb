@@ -8,7 +8,10 @@ use SlackAuthorizer
 
 post '/whatsong' do
   'OK'
-  artists = RSpotify::Artist.search('Arctic Monkeys')
-  arctic_monkeys = artists.first
-  arctic_monkeys.genres.join(', ')
+#   artists = RSpotify::Artist.search('Arctic Monkeys')
+#   arctic_monkeys = artists.first
+#   arctic_monkeys.genres.join(', ')
+
+  me = RSpotify::User.find('1232409408')
+  me.currently_playing
 end
