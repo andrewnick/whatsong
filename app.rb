@@ -8,7 +8,7 @@ require_relative 'slack_authoriser'
 require_relative 'config/application'
 
 
-use SlackAuthorizer
+# use SlackAuthorizer
 enable :sessions
 use OmniAuth::Strategies::Spotify
 
