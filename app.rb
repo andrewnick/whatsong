@@ -2,6 +2,7 @@ require 'sinatra'
 require 'rspotify'
 
 require_relative 'slack_authoriser'
+require_relative 'config/application'
 
 use SlackAuthorizer
 
