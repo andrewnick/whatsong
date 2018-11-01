@@ -8,8 +8,6 @@ require_relative 'slack_authoriser'
 # require_relative 'config/initializers/omniauth'
 require_relative 'config/application'
 
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
-
 # use SlackAuthorizer
 enable :sessions
 use OmniAuth::Builder do
