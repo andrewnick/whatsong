@@ -19,11 +19,15 @@ post '/whatsong' do
 #   artists = RSpotify::Artist.search('Arctic Monkeys')
 #   arctic_monkeys = artists.first
 #   arctic_monkeys.genres.join(', ')
-
-  me = RSpotify::User.find('1232409408')
-  me.recently_played.join(', ')
+    user_hash = File.read("userfile")
+    # me = RSpotify::User.find('1232409408')
+    me = RSpotify::User.new(user_hash)
+    me.recently_played.join(', ')
 end
 
 get '/auth/spotify/callback' do 
     request.env['omniauth.auth']
+    spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+    hash = spotify_user.to_hash
+    File.open(userfile, 'w') { |file| file.write(hash) }
 end
