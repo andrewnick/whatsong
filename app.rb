@@ -29,5 +29,5 @@ get '/auth/spotify/callback' do
     request.env['omniauth.auth']
     spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     hash = spotify_user.to_hash
-    File.open(userfile, 'w') { |file| file.write(hash) }
+    File.open('userfile', 'w') { |file| file.write(hash) }
 end
