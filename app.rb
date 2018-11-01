@@ -1,5 +1,5 @@
 require 'sinatra'
-require_relative 'auth/slack_authorizer'
+require_relative 'slack_authoriser'
 
 use SlackAuthorizer
 
