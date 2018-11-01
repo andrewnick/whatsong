@@ -53,6 +53,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  omniauth
   rspotify
   sinatra
 
