@@ -30,17 +30,17 @@ class App < Sinatra::Base
       # me.recently_played.join(', ')
   end
 
-  get '/auth/spotify/callback' do 
+  get '/auth/spotify/callback' do
       spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-      hash = spotify_user.to_hash
+      @user = spotify_user.to_hash
       puts hash.to_yaml
       # File.open('userfile', 'w') { |file| file.write(hash.to_s) }
+      erb :dbTest
   end
 
   get "/" do
-    'Hi'
-    @client = ENV['SPOTIFY_CLIENT_ID']
-    puts ENV['SPOTIFY_CLIENT_ID']
+    puts 'Hi'
+    @user = { "Jane Doe" => 10, "Jim Doe" => 6 }
     erb :dbTest
   end
 end
