@@ -44,10 +44,12 @@ class App < Sinatra::Base
 
   post '/whatsong' do
     # 'OK'
+    content_type :json
+    # { :key1 => 'value1', :key2 => 'value2' }.to_json
     {
       "response_type": "in_channel",
       "text": self.currently_playing_details
-    }
+    }.to_json
   end
 
   get '/auth/spotify/callback' do
