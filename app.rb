@@ -44,7 +44,10 @@ class App < Sinatra::Base
 
   post '/whatsong' do
     # 'OK'
-    self.currently_playing_details
+    {
+      "response_type": "in_channel",
+      "text": self.currently_playing_details
+    }
   end
 
   get '/auth/spotify/callback' do
